@@ -7,17 +7,22 @@
   </div>
 
   <div class="field">
+    <%= form.label :type_carriage, 'Тип вагона' %>
+    <%= form.select(:type_carriage, [:Coupe, :Economy]) %>
+  </div>
+
+  <div class="field">
     <%= form.label :train, 'Поезд' %>
     <%= form.collection_select :train_id, Train.all, :id, :number %>
   </div>
 
   <div class="field">
-    <%= form.label :up_seats %>
+    <%= form.label :up_seats, 'Верхних мест' %>
     <%= form.text_field :up_seats, id: :railway_carriage_up_seats %>
   </div>
 
   <div class="field">
-    <%= form.label :down_seats %>
+    <%= form.label :down_seats, 'Нижних мест' %>
     <%= form.text_field :down_seats, id: :railway_carriage_down_seats %>
   </div>
 

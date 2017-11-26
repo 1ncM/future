@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Тип вагона:</strong>
+  <%= @railway_carriage.type_carriage %>
+</p>
+
+<p>
   <% if @railway_carriage.train %>
     <strong> Номер поезда: </strong> <%= @railway_carriage.train.number %>
   <% else %>
