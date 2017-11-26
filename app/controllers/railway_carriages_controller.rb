@@ -5,7 +5,7 @@ class RailwayCarriagesController < ApplicationController
   end
 
   def show
-    @railway_carriage = RailwayCarriage.find(params[:in])	
+    @railway_carriage = RailwayCarriage.find(params[:id])	
   end
 
   def new

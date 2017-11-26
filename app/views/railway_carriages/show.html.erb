@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Номер вагона:</strong>
+  <%= @railway_carriage.number %>
+</p>
+
+<p>
+  <% if @railway_carriage.train %>
+    <strong> Номер поезда: </strong> <%= @railway_carriage.train.number %>
+  <% else %>
+  	У вагона нет поезда
+  <% end %>  
+</p>
+
+<%= link_to 'Edit', edit_railway_carriage_path(@railway_carriage) %> |
+<%= link_to 'Back', railway_carriages_path %>
