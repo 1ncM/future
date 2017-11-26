@@ -1,6 +1,11 @@
 class RailwayCarriagesController < ApplicationController
+
   def index
   	@railway_carriages = RailwayCarriage.all
+  end
+
+  def show
+    @railway_carriage = RailwayCarriage.find(params[:in])	
   end
 
   def new
@@ -8,7 +13,7 @@ class RailwayCarriagesController < ApplicationController
   end
 
   def create
-	@railway_carriage = RailwayCarriage.new(railway_carriage_params)
+		@railway_carriage = RailwayCarriage.new(railway_carriage_params)
 
 	if @railway_carriage.save
 	  redirect_to @railway_carriage
