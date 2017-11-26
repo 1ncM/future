@@ -3,12 +3,22 @@
 
   <div class="field">
     <%= form.label :number %>
-    <%= form.text_field :number, id: :railway_carriage_title %>
+    <%= form.text_field :number, id: :railway_carriage_number %>
   </div>
 
   <div class="field">
     <%= form.label :train, 'Поезд' %>
     <%= form.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :up_seats %>
+    <%= form.text_field :up_seats, id: :railway_carriage_up_seats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :down_seats %>
+    <%= form.text_field :down_seats, id: :railway_carriage_down_seats %>
   </div>
 
   <div class="actions">
