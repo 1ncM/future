@@ -15,11 +15,11 @@ class RailwayCarriagesController < ApplicationController
   def create
 		@railway_carriage = RailwayCarriage.new(railway_carriage_params)
 
-	if @railway_carriage.save
-	  redirect_to @railway_carriage
-	else
-	  render :new
-	end
+		if @railway_carriage.save
+	  	redirect_to @railway_carriage
+		else
+	  	render :new
+		end
   end
 
   private

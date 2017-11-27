@@ -13,5 +13,17 @@
   <% end %>  
 </p>
 
+<p>
+  <strong>Вагоны/места:</strong>
+  	<ul>Купе: <%= @train.railway_carriages.where(type_carriage: "Coupe").count %>
+  		<li>Верхних: <%= @train.railway_carriages.where(type_carriage: "Coupe").sum("up_seats")%></li>
+  		<li>Нижних: <%= @train.railway_carriages.where(type_carriage: "Coupe").sum("down_seats")%></li>
+  	</ul>
+  	<ul>Плацкарт: <%= @train.railway_carriages.where(type_carriage: "Economy").count %>
+  		<li>Верхних: <%= @train.railway_carriages.where(type_carriage: "Economy").sum("up_seats")%></li>
+  		<li>Нижних: <%= @train.railway_carriages.where(type_carriage: "Economy").sum("down_seats")%></li>
+  	</ul>
+</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

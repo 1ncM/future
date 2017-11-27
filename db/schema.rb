@@ -12,8 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20171126203614) do
 
-# Could not dump table "railway_carriages" because of following StandardError
-#   Unknown type 'symbol' for column 'type_carriage'
+  create_table "railway_carriages", force: :cascade do |t|
+    t.string "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "train_id"
+    t.integer "up_seats"
+    t.integer "down_seats"
+    t.string "type_carriage"
+    t.index ["train_id"], name: "index_railway_carriages_on_train_id"
+  end
 
   create_table "railway_stations", force: :cascade do |t|
     t.string "title"
