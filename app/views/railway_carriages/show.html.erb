@@ -7,7 +7,7 @@
 
 <p>
   <strong>Тип вагона:</strong>
-  <%= @railway_carriage.type_carriage %>
+  <%= @railway_carriage.type %>
 </p>
 
 <p>
@@ -20,12 +20,12 @@
 
 <p>
   <strong>Верхних мест:</strong>
-  <%= @railway_carriage.up_seats %>
+  <%= @railway_carriage.top_seats %>
 </p>
 
 <p>
   <strong>Нижних мест:</strong>
-  <%= @railway_carriage.down_seats %>
+  <%= @railway_carriage.bottom_seats %>
 </p>
 
 <%= link_to 'Edit', edit_railway_carriage_path(@railway_carriage) %> |
