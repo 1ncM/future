@@ -33,6 +33,10 @@ class RailwayStationsController < ApplicationController
     end
   end
 
+  def update_position
+    
+  end
+
   def destroy
     @railway_station.destroy
     redirect_to railway_stations_url, notice: 'Railway station was successfully destroyed.'
