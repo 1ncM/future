@@ -19,12 +19,21 @@
 </p>
 
 <p>
-  <strong>Станции маршрута:</strong>
-  <% @route.railway_stations.each do |station| %>
-    <ul>
-      <li><%= station.title %></li>
-    </ul>
-  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <td><strong>Станции маршрута:</strong></td>
+        <td>Позиция:</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @route.railway_stations.each do |station| %>
+        <tr>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </p>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
