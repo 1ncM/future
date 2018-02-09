@@ -1,6 +1,6 @@
 class RailwayCarriage < ApplicationRecord
 	validates :number, presence: true
-	validates :number, uniqueness: { scope: :train, message: "number already exists"}
+	validates :number, uniqueness: { scope: :train, message: "already exists"}
 
 	belongs_to :train
 
@@ -9,7 +9,7 @@ class RailwayCarriage < ApplicationRecord
 	private
 
 	def set_number
-		self.number = self.class.count + self.train.number
+		self.number = self.class.superclass.count + 1
 	end
 
 end
