@@ -14,28 +14,12 @@
 </p>
 
 <p>
-  <table>
-    <thead>
-      <td width="70px"><strong>Coupe:</strong></td>
-      <td><strong>Economy:</strong></td>
-    </thead>
-    <tbody>   
-      <td>
-        <ul>
-          <% @train.railway_carriages.where(type: "CoupeCarriage").each do |carriage| %>
-            <li><%= link_to carriage.number, carriage %></li>
-          <% end %>
-        </ul>        
-      </td>
-      <td>
-        <ul>
-          <% @train.railway_carriages.where(type: "EconomyCarriage").each do |carriage| %>
-            <li><%= link_to carriage.number, carriage %></li>
-          <% end %>
-        </ul>        
-      </td>
-    </tbody>
-  </table>
+  <strong>Вагоны:</strong>
+    <ul>
+      <% @train.railway_carriages.each do |carriage| %>
+        <li><%= link_to carriage.number, carriage %></li>
+      <% end %>
+    </ul>        
 </p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
