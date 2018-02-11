@@ -11,6 +11,11 @@
     <%= form.collection_select :route_id, Route.all, :id, :name %>
   </div>
 
+  <div class="field">
+    <%= form.label :sort, "Сортировка вагонов" %>
+    <%= form.select(:sort, [["с головы поезда","head"], ["с хвоста поезда","end"]]) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

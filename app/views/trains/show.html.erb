@@ -16,8 +16,14 @@
 <p>
   <strong>Вагоны:</strong>
     <ul>
-      <% @train.railway_carriages.each do |carriage| %>
-        <li><%= link_to carriage.number, carriage %></li>
+      <% if @train.sort == "head" %>
+          <% @train.railway_carriages.head.each do |carriage| %>
+            <li><%= link_to carriage.number, carriage %></li>
+          <% end %>
+        <% else %>
+          <% @train.railway_carriages.end.each do |carriage| %>
+            <li><%= link_to carriage.number, carriage %></li>
+          <% end %>          
       <% end %>
     </ul>        
 </p>
