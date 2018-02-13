@@ -1,35 +1,44 @@
 # frozen_string_literal: true
 class RailwayCarriagesController < ApplicationController
-
-  def index
-  	@railway_carriages = RailwayCarriage.all
-  end
+  before_action :set_train, only: [:new, :create]
 
   def show
-    @railway_carriage = RailwayCarriage.find(params[:id])	
+    @railway_carriage = RailwayCarriage.find(params[:id])
   end
 
   def new
-  	@railway_carriage = RailwayCarriage.new
+    @railway_carriage = @train.railway_carriages.new
   end
 
   def create
-		@railway_carriage = RailwayCarriage.new(railway_carriage_params)
+    @railway_carriage = @train.railway_carriages.new(railway_carriage_params)
 
-		if @railway_carriage.save
-	  	redirect_to railway_carriages_path(@railway_carriage)
-		else
-	  	render :new
-		end
+    if @railway_carriage.save
+      redirect_to railway_carriage_path(@railway_carriage)
+    else
+      render :new
+    end
   end
 
-  def destroy
+  def edit
     @railway_carriage = RailwayCarriage.find(params[:id])
-    @railway_carriage.destroy
-    redirect_to railway_carriages_path
+  end
+
+  def update
+    @railway_carriage = RailwayCarriage.find(params[:id])
+
+    if @railway_carriage.update(railway_carriage_params)
+      redirect_to railway_carriage_path(@railway_carriage)
+    else
+      render :edit
+    end
   end
 
   private
+
+    def set_train
+      @train = Train.find(params[:train_id])      
+    end
 
     def railway_carriage_params
       params.require(:railway_carriage).permit(:number, :train_id, :type, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :seat_places)

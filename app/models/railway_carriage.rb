@@ -6,8 +6,8 @@ class RailwayCarriage < ApplicationRecord
 
 	before_validation :set_number
 
-	scope :head, -> { RailwayCarriage.order("number ASC") }
-	scope :end, -> { RailwayCarriage.order("number DESC") }
+	scope :head, -> { order(:number) }
+	scope :end, -> { order("number DESC") }
 
 	private
 
