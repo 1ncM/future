@@ -1,7 +1,5 @@
-<%= form_with(model: railway_carriage, local: true) do |form| %>
+<%= form_with(model: [@train, railway_carriage.becomes(RailwayCarriage)], local: true) do |form| %>
   <%= render "common/errors", resource: railway_carriage %>
-
-
 
   <div class="field">
     <%= form.label :type, 'Тип вагона' %>
