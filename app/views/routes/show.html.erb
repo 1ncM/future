@@ -24,17 +24,21 @@
       <tr>
         <td><strong>Станции маршрута:</strong></td>
         <td><strong>Позиция:</strong></td>
+        <td><strong>Время прибытия:</strong></td>
+        <td><strong>Время отправления:</strong></td>
       </tr>
     </thead>
     <tbody>
       <% @route.railway_stations.ordered.each do |station| %>
         <tr>
           <td><%= station.title %></td>
-          <td><%= form_tag update_position_railway_station_path(station), method: :patch do %>
-            <%= number_field_tag :position, station.position_in(@route) %>                          
-            <%= hidden_field_tag :route_id, @route.id %>
-            <%= submit_tag "Обновить" %>
-          <% end %></td>
+              <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+          <td><%= number_field_tag :position, station.position_in(@route) %></td>                         
+              <%= hidden_field_tag :route_id, @route.id %>
+          <td><%= text_field_tag :arr, station.time_in_arr(@route) %></td>
+          <td><%= text_field_tag :dep, station.time_in_dep(@route) %></td>
+          <td><%= submit_tag "Обновить" %></td>
+              <% end %>        
         </tr>
       <% end %>
     </tbody>
