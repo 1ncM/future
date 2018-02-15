@@ -10,6 +10,21 @@ class RailwayStation < ApplicationRecord
   	station_route.update(position: position) if station_route
   end
 
+  def update_time(route, arr, dep)
+    station_route = railway_stations_routes.where(route: route).first
+    station_route.update(arr: arr, dep: dep) if station_route
+  end
+
+  def time_in_arr(route)
+    station_route = railway_stations_routes.where(route: route).first
+    station_route.try(:arr)
+  end
+
+  def time_in_dep(route)
+    station_route = railway_stations_routes.where(route: route).first
+    station_route.try(:dep)
+  end
+
   def position_in(route)
   	station_route = railway_stations_routes.where(route: route).first
   	station_route.try(:position)
