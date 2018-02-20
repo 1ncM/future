@@ -1,0 +1,45 @@
+<table>
+	<thead>
+		<tr>
+			<td>Поезд</td>
+			<td>Маршрут</td>
+			<td>Время отправления</td>
+			<td>Время прибытия</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @routes.each do |route| %>
+			<tr>
+				<td>
+					<% route.trains.each do |train| %>
+						<%= train.number %>
+						<%= link_to 'Купить билет', new_ticket_path(ticket: {train_id: train, user_id: User.last, first_station_id: @first_station, last_station_id: @last_station}) %>
+					<% end %>
+				</td>
+				<td>
+					<% route.railway_stations.each do |station|%>
+						<% if station.id == @last_station.to_i %>
+							<strong><%= station.title %></strong>
+						<% elsif station.id == @first_station.to_i %>
+							<strong><%= station.title %></strong>
+						<% else %>
+							<%= station.title %>
+						<% end %>
+					<% end %>
+				</td>
+				<td>
+					<% route.railway_stations.each do |station|%>
+						<%= station.time_in_dep(route) if station.id == @first_station.to_i %>
+					<% end %>					
+				</td>
+				<td>
+					<% route.railway_stations.each do |station|%>
+						<%= station.time_in_arr(route) if station.id == @last_station.to_i %>
+					<% end %>					
+				</td>
+				<td>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
