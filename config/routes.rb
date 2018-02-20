@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root 'welcome#index'
 
+  resource :search, only: [:new, :show, :edit]
+
   resources :trains do
     resources :railway_carriages, shallow: true
   end

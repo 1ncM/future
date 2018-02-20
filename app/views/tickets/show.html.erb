@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Owner:</strong>
+  <%= @ticket.user.name %>
+</p>
+
+<p>
   <strong>Number:</strong>
   <%= @ticket.number %>
 </p>
@@ -16,13 +21,13 @@
 </p>
 
 <p>
-  <strong>First station:</strong>
-  <%= @ticket.first_station.title %>
+  Departure time from <strong><%= @ticket.first_station.title %></strong> : </br>
+  <%= @ticket.first_station.time_in_dep(@ticket.train.route) %>
 </p>
 
 <p>
-  <strong>Last station:</strong>
-  <%= @ticket.last_station.title %>
+  Arrive to <strong><%= @ticket.last_station.title %></strong> : </br>
+  <%= @ticket.last_station.time_in_arr(@ticket.train.route) %>
 </p>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |

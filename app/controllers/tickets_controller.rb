@@ -9,7 +9,7 @@ class TicketsController < ApplicationController
 	end
 
 	def new
-		@ticket = Ticket.new
+		@ticket = Ticket.new(ticket_params)
 	end
 
 	def create
@@ -45,6 +45,6 @@ class TicketsController < ApplicationController
 	private
 
 	def ticket_params
-		params.require(:ticket).permit(:number, :fio, :first_station_id, :last_station_id)
+		params.require(:ticket).permit(:number, :fio, :first_station_id, :last_station_id, :train_id, :user_id)
 	end
 end

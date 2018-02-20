@@ -21,6 +21,14 @@
     <%= form.collection_select :last_station_id, RailwayStation.all, :id, :title %>
   </div>
 
+  <div class="field">
+    <%= form.hidden_field :train_id %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
