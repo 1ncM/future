@@ -17,15 +17,11 @@
   <strong>Вагоны:</strong>
     <ul>
       <% if @train.sort == "head" %>
-          <% @train.railway_carriages.head.each do |carriage| %>
-            <li><%= link_to carriage.number, railway_carriage_path(carriage) %></li>
-          <% end %>
-        <% else %>
-          <% @train.railway_carriages.end.each do |carriage| %>
-            <li><%= link_to carriage.number, railway_carriage_path(carriage) %></li>
-          <% end %>          
+        <%= render partial: "railway_carriages/railway_carriage", collection: @train.railway_carriages.head %>
+      <% else %>
+        <%= render partial: "railway_carriages/railway_carriage", collection: @train.railway_carriages.end %>
       <% end %>
-    </ul>        
+    </ul>
 </p>
 
 <%= link_to 'Add carrige', new_train_railway_carriage_path(@train) %> </br>
