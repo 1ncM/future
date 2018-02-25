@@ -12,13 +12,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :first_station %>
-    <%= form.collection_select :first_station_id, RailwayStation.all, :id, :title %>
+     <%= form.hidden_field :first_station_id %>
   </div>
 
   <div class="field">
-    <%= form.label :last_station %>
-    <%= form.collection_select :last_station_id, RailwayStation.all, :id, :title %>
+     <%= form.hidden_field :last_station_id %>
   </div>
 
   <div class="field">
