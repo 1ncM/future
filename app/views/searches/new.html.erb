@@ -40,7 +40,7 @@
 							</td>
 						
 
-							<td><%= link_to 'Купить билет', new_ticket_path(ticket: {train_id: train, user_id: current_user, first_station_id: @first_station, last_station_id: @last_station}) %></td>
+							<td><%= link_to 'Купить билет', new_ticket_path(ticket: {train_id: train, first_station_id: @first_station, last_station_id: @last_station}) %></td>
 							</td>
 
 					</tr>
