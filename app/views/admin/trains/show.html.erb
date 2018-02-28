@@ -1,0 +1,27 @@
+<p>
+  <strong>Number:</strong>
+  <%= @train.number %>
+</p>
+
+<p>
+  <% if @train.route %>
+    <strong> Поезд на маршруте:</strong> <%= @train.route.name %>
+  <% else %>
+  	У поезда нет маршрута
+  <% end %>  
+</p>
+
+<p>
+  <strong>Вагоны:</strong>
+    <ul>
+      <% if @train.sort == "head" %>
+        <%= render partial: "admin/railway_carriages/railway_carriage", collection: @train.railway_carriages.head %>
+      <% else %>
+        <%= render partial: "admin/railway_carriages/railway_carriage", collection: @train.railway_carriages.end %>
+      <% end %>
+    </ul>
+</p>
+
+<%= link_to 'Add carrige', new_admin_train_railway_carriage_path(@train) %> </br>
+<%= link_to 'Edit', edit_admin_train_path(@train) %> |
+<%= link_to 'Back', admin_trains_path %>
