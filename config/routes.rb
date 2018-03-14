@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'welcome/index'
-  root 'welcome#index'
+  root 'searches#show'
 
   namespace :admin do
     resources :trains do
@@ -14,8 +14,9 @@ Rails.application.routes.draw do
     end
 
     resources :routes
+    resources :tickets
   end
-  resources :tickets
+  resources :tickets, except: [:edit, :update]
   resource :search, only: [:new, :show, :edit]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

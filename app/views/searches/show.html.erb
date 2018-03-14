@@ -1,7 +1,15 @@
 <h1>Страница Поиска Билетов</h1>
 
-<%= form_tag new_search_path, method: :get do %>
-	<%= collection_select :search, :first_station_id, RailwayStation.all, :id, :title %>
-	<%= collection_select :search, :last_station_id, RailwayStation.all, :id, :title %>
-	<%= submit_tag 'Поиск' %>
+<div class="row">
+	<%= form_tag new_search_path, method: :get do %>
+	<div class="col-md-4">
+		<%= collection_select :search, :first_station_id, @stations, :id, :title, {}, class: 'form-control' %>
+	</div>
+	<div class="col-md-4">
+		<%= collection_select :search, :last_station_id, @stations, :id, :title, {}, class: 'form-control' %>
+	</div>
+	<div class="col-md-4">
+		<%= submit_tag 'Поиск', class: 'btn btn-primary'%>		
+	</div>
+</div>
 <% end %>

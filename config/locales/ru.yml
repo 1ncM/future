@@ -1,0 +1,24 @@
+ru:
+  common:
+    errors:
+      errors: "При заполнении формы возникли ошибки:"
+  devise:
+    sessions:
+      new:
+        login: 'Вход'
+    shared:
+      links:
+        confirmation: 'Не пришло подтверждение?'
+  admin:
+    railway_stations:
+      index:
+        stations: "Станции"
+        title: "Название"
+        new_station: "Новая станция"
+      form:
+        submit: '%{action} станцию'
+  tickets:
+    new:
+      new_ticket: "Новый билет"
+    form:
+      create_ticket: 'Создать билет'
