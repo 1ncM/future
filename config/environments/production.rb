@@ -63,7 +63,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: "floating-shelf-33966.herokuapp.com" }
   config.action_mailer.delivery_method = :sendgrid
-  config.action_mailer.sendgrid_settings = { api_token: ENV['SENDGRID_API_TOKEN'] }
+  config.action_mailer.sendgrid_settings = { api_token: ENV['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'] }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
