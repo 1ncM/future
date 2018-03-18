@@ -75,7 +75,7 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  TicketMailer::Base.smtp_settings = {
+  ActionMailer::Base.smtp_settings = {
     :user_name => 'Alexandr',
     :password => '123123',
     :domain => 'floating-shelf-33966.herokuapp.com',
