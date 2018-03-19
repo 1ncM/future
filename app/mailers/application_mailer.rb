@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'team@gmail.com'
+  default from: 'microposts@gmail.com'
   layout 'mailer'
 end

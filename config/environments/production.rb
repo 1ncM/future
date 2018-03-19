@@ -64,7 +64,6 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "floating-shelf-33966.herokuapp.com"}
-
   config.action_mailer.smtp_settings = {
     :user_name => ENV['app90809899@heroku.com'],
     :password => ENV['d9r8gbkz9292'],
