@@ -61,7 +61,8 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "Thinknetica_#{Rails.env}"
   config.action_mailer.perform_caching = false
-
+  
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "floating-shelf-33966.herokuapp.com"}
   
@@ -70,7 +71,7 @@ Rails.application.configure do
     :password => ENV['d9r8gbkz9292'],
     :domain => 'heroku.com',
     :address => 'smtp.sendgrid.net',
-    :port => 587,
+    :port => 25,
     :authentication => :plain,
     :enable_starttls_auto => true
   }
