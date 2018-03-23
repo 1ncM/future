@@ -2,8 +2,6 @@ class SearchesController < ApplicationController
 
 	def show
 		@stations = RailwayStation.all
-		puts "SENDGRID_USERNAME: #{ENV['SENDGRID_USERNAME']}"
-		puts "SENDGRID_PASSWORD: #{ENV['SENDGRID_PASSWORD']}"
 	end
 
 	def new
