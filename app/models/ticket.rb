@@ -6,6 +6,7 @@ class Ticket < ApplicationRecord
   belongs_to :last_station, class_name: "RailwayStation", foreign_key: :last_station_id
 
   after_create :send_notification
+  after_destroy :delete_ticket
 
   def name_route
   	"#{first_station.title} - #{last_station.title}"
@@ -17,4 +18,7 @@ class Ticket < ApplicationRecord
   	TicketMailer.buy_ticket(self.user, self).deliver_now
   end
 
+  def delete_ticket
+  	TicketMailer.cancel_ticket(self.user, self).deliver_now
+  end
 end

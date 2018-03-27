@@ -23,7 +23,7 @@ class Admin::TicketsController < Admin::BaseController
 
 	def destroy
 		@ticket = Ticket.find(params[:id])
-		@ticket.delete
+		@ticket.destroy
 		redirect_to admin_tickets_path
 	end
 
