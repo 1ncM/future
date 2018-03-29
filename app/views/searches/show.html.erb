@@ -1,7 +1,7 @@
 <h1>Страница Поиска Билетов</h1>
 
 <div class="row">
-	<%= form_tag new_search_path, method: :get do %>
+	<%= form_tag new_search_path, method: :get, class: 'search_form' do %>
 	<div class="col-md-4">
 		<%= collection_select :search, :first_station_id, @stations, :id, :title, {}, class: 'form-control' %>
 	</div>
@@ -9,7 +9,7 @@
 		<%= collection_select :search, :last_station_id, @stations, :id, :title, {}, class: 'form-control' %>
 	</div>
 	<div class="col-md-4">
-		<%= submit_tag 'Поиск', class: 'btn btn-primary'%>		
+		<%= submit_tag 'Поиск', class: 'btn btn-primary find'%>		
 	</div>
 </div>
 <% end %>
