@@ -3,6 +3,7 @@ class Admin::RailwayCarriagesController < Admin::BaseController
 
   def show
     @railway_carriage = RailwayCarriage.find(params[:id])
+    render @railway_carriage
   end
 
   def new
